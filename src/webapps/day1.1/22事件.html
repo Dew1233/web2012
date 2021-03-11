@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">暴躁点击</button>
+</body>
+<script type="application/javascript">
+    /*
+    * 事件，就是用户和浏览器直接的交互行为
+    * */
+    window.onload= function f() {
+        let btn = document.getElementById("btn");
+        btn.onclick=function () {
+            console.log("点啥点")
+        }
+    }
+    /*onload事件在整个页面加载完毕实现
+    * */
+</script>
+</html>

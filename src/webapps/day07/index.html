@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background: url("zombies/bg1.jpg");
+            overflow: hidden;
+        }
+        img{
+            position: absolute;
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+<h3 id="s_h3">成功数量：0</h3>
+<h3 id="f_h3">失败数量：0</h3>
+
+
+<script src = "../js/jquery-1.4.2.js"></script>
+<script>
+    let s_count =0;
+    let f_count =0;
+    /*得到窗口的宽高*/
+    let w = $(window).width();
+    let h = $(window).height();
+    $("body").css("background-size",w+"px "+h+"px");
+
+    //窗口尺寸改变事件
+    onresize = function () {
+         w = $(window).width();
+         h = $(window).height();
+        $("body").css("background-size",w+"px "+h+"px");
+    }
+//    开启定时器
+    setInterval(function(){
+        let type = parseInt(s_count/20);
+        if(type>3){
+            type = 3;
+        }
+    //    创建僵尸图片
+        let img = $("<img src='zombies/zomb"+type+".png'>");
+        $("body").append(img);
+    //    设置僵尸位置
+        //    随机僵尸的高度
+        let top = parseInt(Math.random()*(h-50));
+       img.css({"left":w+"px","top":top+"px"});
+        $("body").append(img);
+       img.mouseover(function () {
+           //得到当前僵尸的血量并让其-1
+           let hp = img.attr("hp");
+           hp--;
+           img.attr("hp",hp);
+           if(hp<0){
+               img.remove();//删除僵尸
+               s_count++;
+               $("#s_h3").text("成功数量："+s_count);
+           }
+       })
+
+    },100);
+
+//    开启移动僵尸的定时器
+    setInterval(function () {
+        $("img").each(function () {
+        //    得到原来的left
+            let left = parseInt($(this).css("left"));
+            left -= 2;
+        //    把变小的left再给到僵尸图片
+            $(this).css("left",left+"px");
+            //僵尸走到房子的位置删除
+            if(left<=50){
+                $(this).remove();
+                f_count++;
+                $("#f_h3").text("失败数量："+f_count);
+                if(f_count>=100){
+                    //避免显示不出10 添加定时器
+                    setTimeout(function () {
+                        alert("游戏结束！");
+                        location.reload();//刷新
+                    },50);
+                }
+            }
+        })
+    },100)
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*开启box1的绝对定位*/
+            position: absolute;
+        }
+    </style>
+    <script type="application/javascript">
+        window.onload = function(){
+
+            /*使div可以跟随鼠标移动*/
+            // var box1 = document.getElementById("box1");
+            //如果绑定着box1会出现卡顿移动不了 所以就绑定的document
+            document.onmousemove = function (event) {
+                /*解决浏览器兼容问题*/
+                event = event || window.event;
+                var st = document.documentElement.scrollTop ||document.body.scrollTop;
+                var sl = document.documentElement.scrollLeft ||document.body.scrollLeft;
+                console.log(st);
+                /*相对于整个窗口*/
+               /* var left = event.clientX;
+                var top = event.clientY;*/
+
+
+                var left = event.pageX;
+                var top = event.pageY;
+
+                /*
+                * ie8不支持pageX
+                * */
+
+                /*设置div偏移量*/
+                box1.style.left = left+"px";
+                box1.style.top = top+"px";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+</body>
+</html>

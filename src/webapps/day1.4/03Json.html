@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        /*
+        * JSON就是一个特殊格式的字符串
+        * 可以被任意语言识别
+        * json字符串的属性名必须加双引号
+        * Json分类：
+        *        1对象｛｝
+        *        2数组
+        * Json允许的值：
+        * 字符串 数值 布尔值 null 对象 数组
+        * */
+        var obj = '{"name":"孙悟空","age":18,"gender":"男"}';
+
+        var arr = '[1,2,3,4,"hello",true]';
+
+
+        /*
+        * 将json字符串转换为Js中的对象
+        * js中提供了一个工具类 就叫做JSON
+        *
+        * json---->js对象
+        * JSON.parse();
+        * */
+        var o =JSON.parse(obj);
+        console.log(o.name);
+
+        /*
+        * JS对象转换为JSON
+        * JSON.stringify()
+        *       js对象转换为JSON字符串
+        *       需要js对象作为参数 会返回JSON字符串
+        *
+        * */
+
+
+        /*
+        * ie7不兼容json
+        *
+        * eval()
+        * 这个函数用来执行一段字符串形式的JS代码
+        * 使用eval()执行的字符串中含有｛｝ 会将｛｝当作代码块
+        * 不希望当成代码块，字符串前后各加 （ 和）
+        *开发中少用
+        *
+        * 引入一个json.js文件就行
+        * */
+        var obj = '{"name":"孙悟空","age":18,"gender":"男"}';
+        var obj2 = eval("("+obj+")");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

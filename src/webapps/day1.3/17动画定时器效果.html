@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left:0;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            position: absolute;
+            left:0;
+            top: 200px;
+        }
+
+    </style>
+    <script type="application/javascript">
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var timer ;
+            btn01.onclick = function () {
+                /*获取原来的left*/
+
+                move(box1,"left",800,10);
+            }
+            btn02.onclick = function () {
+                /*获取原来的left*/
+
+                move(box1,"left",0,-10);
+            }
+            btn03.onclick = function () {
+                /*获取原来的left*/
+
+                move(box2,"left",800,10);
+            }
+            btn04.onclick = function () {
+                /*获取原来的left*/
+
+                move(box2,"top",800,10);
+            }
+
+            /*
+            * obj 要移动的对象
+            * attr  要改变的样式
+            * target 目标位置
+            * speed 移动速度
+            *
+            * */
+            function move(obj,attr,target,speed,callback){
+                var oldValue = parseInt(getStyle(obj,attr));
+                clearInterval(obj.timer);
+                /*判断速度的正负值，往左还是右边*/
+                var current = parseInt(getStyle(obj,"left"));
+                if(current>target){
+                    speed = -speed;
+                }
+                console.log(current);
+                obj.timer = setInterval(function () {
+
+                    var oldValue = parseInt(getStyle(obj,attr));
+                    var newValue = oldValue + speed;
+
+                    if((speed<0&&newValue<target)||(speed>0&&newValue>target)){
+                        newValue = target;
+                    }
+
+                    // console.log(newValue);
+                    obj.style[attr] = newValue +"px";
+                    if(newValue ==target){
+                        clearInterval(obj.timer);
+                        callback &&callback();
+                    }
+
+                },30)
+            }
+        }
+        /*获取元素*/
+        function getStyle(obj,name) {
+            if(window.getComputedStyle){
+                return getComputedStyle(obj,null)[name];
+            }else {
+                return obj.currentStyle[name];
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="btn01">开始向右移动</button>
+<button id="btn02">开始向左移动</button>
+<button id="btn03">box2开始向右移动</button>
+<button id="btn04">测试按钮</button>
+<hr>
+<br>
+<div id="box1">
+
+</div>
+<div id="box2">
+
+</div>
+
+</body>
+</html>

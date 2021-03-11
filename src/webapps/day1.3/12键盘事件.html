@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        window.onload = function () {
+            /*
+            * 键盘事件：
+            * onkeydown:键盘按下
+            * onkeyup：键盘松开
+            *
+            * 键盘事件一般都会绑定获取到可以焦点的对象或者document
+            * 第一次按下的时候和第二次按下的时间会相对较多，要判断是不是误操作
+            *
+            * */
+            document.onkeydown = function (event) {
+                event = event||window.event;
+                /*
+                * keyCode获取按键的编码
+                * altKey
+                * ctrlKey
+                * shiftKey
+                *
+                * */
+                if(event.keyCode === 89&&event.ctrlKey){
+                    console.log("ctrl和y都被按下了");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<!--<input type="text">-->
+
+</body>
+</html>

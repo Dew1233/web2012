@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1{
+            width:100px;
+            height: 100px;
+            background-color: red;
+            cursor: auto;
+            position: absolute;
+        }
+    </style>
+    <script type="application/javascript">
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+
+            /*
+            * 开启一个定时器 控制div移动
+            *
+            * */
+            var speed = 10;
+            var dir = 0;
+            setInterval(function () {
+                switch (dir) {
+                    case 37:
+                        box1.style.left = box1.offsetLeft -speed+"px";break;
+                    case 38:
+                        box1.style.top = box1.offsetTop - speed+"px";
+                        console.log("向上");
+                        break;
+                    case 39:
+                        box1.style.left = box1.offsetLeft + speed+"px";
+                        console.log("向右");
+                        break;
+                    case 40:
+                        box1.style.top = box1.offsetTop + speed+"px";
+                        console.log("向下");
+                }
+            },30);
+
+            document.onkeydown = function (event) {
+                event = event ||window.event;
+                if(event.ctrlKey){
+                    speed = 500;
+                }else {
+                    speed = 10;
+                }
+            //    使dir等于按键的值
+                dir = event.keyCode;
+            };
+            document.onkeyup = function (event) {
+                dir = 0;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box1"></div>
+</body>
+</html>

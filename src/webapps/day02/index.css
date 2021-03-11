@@ -1,0 +1,47 @@
+section{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    position: relative;
+    width: 611px;
+    height:376px ;
+    background: #E8E8E8;
+    margin-right:10px ;
+}
+.left .left_pro{
+    width: 245px;
+    height: 232px;
+    padding: 5px;
+    text-align: left;
+    margin-top: 68px;
+    margin-left: 36px;
+}
+.left span{
+    position: absolute;
+    top: 35px;
+    right: 19px;
+}
+.left span img{
+    width: 318px;
+    height: 319px;
+}
+.right{
+    position: relative;
+    width: 375px;
+    height:376px ;
+    background: #E8E8E8;
+    overflow: hidden;
+    float: right;
+}
+.right span{
+    position: absolute;
+    top: 150px;
+    right: 63px;
+
+}
+.right span img{
+    width: 292px;
+    height: 232px;
+}

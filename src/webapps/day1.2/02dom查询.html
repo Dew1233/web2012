@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="total">
+    <div class="inner">
+        <p>
+            你喜欢哪个城市？
+        </p>
+        <ul id="city">
+            <li id="bj">北京</li>
+            <li>上海</li>
+            <li>东京</li>
+            <li>首尔</li>
+        </ul>
+        <br>
+        <br>
+
+        <button id="btn01">查找#city下所有li节点</button>
+        <button id="btn02">查找#city下所有子节点</button>
+        <button id="btn03">返回#phone的第一个子节点</button>
+        <button id="btn04">返回#android的前一个兄弟节点</button>
+        <button id="btn05">读取#username的value属性值</button>
+        <button id="btn06">设置#uesrname的value属性值</button>
+        <button id="btn07">返回#bj的文本值</button>
+    </div>
+</div>
+</body>
+<script type="application/javascript">
+    var btn01 = document.getElementById("btn01");
+    var btn02 = document.getElementById("btn02");
+    var btn03 = document.getElementById("btn03");
+    var btn04 = document.getElementById("btn04");
+    var btn05 = document.getElementById("btn05");
+    var btn06 = document.getElementById("btn06");
+    var btn07 = document.getElementById("btn07");
+
+
+    btn01.onclick = function () {
+        var city = document.getElementById("city");
+        /*获取city下的所有li节点*/
+        var lis =  city.getElementsByTagName("li");
+        for(var i = 0;i<lis.length;i++){
+            alert(lis[i].innerHTML);
+        }
+    }
+    btn02.onclick = function () {
+        var city = document.getElementById("city");
+        /*查找#city下所有子节点*/
+        /*childNodes是获取所有的元素，包括注释文本
+        * dom标签里面的换行空白也算
+        * 注意在IE8及一下的浏览器不会将空白文本当成子节点*/
+        var cns =  city.childNodes;
+        alert(cns.length);
+        /*获取所有的子元素*/
+        var cns2 = city.children;
+        alert(cns.length);
+    }
+    /*
+    * firstChild:第一个子节点
+    * firstElementChild:第一个子元素：不兼容Ie8以下元素
+    * */
+
+    /*
+    * 返回父节点
+    * parentNode()
+    * innerText 获取元素内部的文本内容
+    * 和innerHTML类似，不同的是会自动将html去除
+    * */
+
+    /*
+    * 节点都是会可能返回文本
+    * 返回前一个兄弟节点
+    * previousSibling
+    * 返回后一个兄弟节点
+    * nextSibling
+    * */
+
+
+    /*
+    * 文本框中的value值就是文本框中的内容
+    * */
+
+</script>
+</html>

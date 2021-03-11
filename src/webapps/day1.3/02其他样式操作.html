@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #af1717;
+            padding: 10px;
+            border: 10px solid yellow;
+            margin: 10px;
+        }
+        #box2{
+            background-color: #518947;
+        }
+        #box3{
+            background-color: #437dc6;
+            padding: 40px;
+        }
+
+        #box4{
+            width: 400px;
+            height: 400px;
+            background-color: #b84a4a;
+            overflow: auto;
+        }
+        #box5{
+            width: 150px;
+            height: 600px;
+            background-color: #23872d;
+        }
+
+    </style>
+    <script type="application/javascript">
+        function myClick(btnstr,fun){
+            var btn = document.getElementById(btnstr);
+            btn.onclick=fun;
+        }
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var box4 = document.getElementById("box4");
+            myClick("btn01",function () {
+                /*
+                * clientWidth
+                * clientHeight
+                * 这两个属性可以获取元素的可见宽度和高度
+                * 这些属性都不带px 返回的是一个数字可以直接计算
+                * 会获取padding 内容区和内边距
+                *
+                * 是只读属性不能修改
+                * 改就只能通过style
+                *
+                * offsetWidth
+                * offsetHeight
+                * 能获取整个的宽度和高度 包括内边距和边框
+                *
+                * */
+                // alert(box1.clientWidth);
+                // alert(box1.offsetWidth)
+
+                /*
+                * offset获取当前元素的定位父元素
+                * 会获取当前元素最近的开启定位的祖先元素
+                * */
+                // var op = box1.offsetParent;
+                // alert(op.id);
+
+                /*
+                * offsetLeft
+                * 当前元素相对于其定位元素的水平偏移量
+                *
+                * offsetTop
+                * 当前元素相对于其定位元素的垂直偏移量
+                * */
+                alert(box1.offsetLeft);
+
+            })
+            myClick("btn02",function () {
+                /*
+                * scrollWidth 滚动宽度
+                * scrollHeight 滚动高度
+                * */
+                // alert(box4.scrollHeight);
+                // alert(box4.scrollWidth);
+                /*
+                * scrollLeft
+                * 可以获取水平滚动的距离
+                *
+                * scrollTop
+                * 可以获取垂直滚动条的滚动距离
+                *
+                * */
+                alert(box4.scrollLeft);
+                /*满足box4.scrollHeight-box.scrollTop == clientHeight
+                * 说明滚动条滚动到底了*/
+                alert(box4.scrollHeight-box4.scrollTop);
+                /*满足box4.scrollWidth-box4.scrollLeft == clientWidth
+                * 说明水平滚动条滚动到底了*/
+                alert(box4.scrollWidth-box4.scrollLeft);
+
+            })
+
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="btn01" value="获取client">
+<input type="button" id="btn02" value="获取scroll">
+<input type="button" id="btn03" value="读取样式">
+<input type="button" id="btn04" value="读取样式">
+
+
+<br>
+<br>
+<div id="box4">
+    <div id="box5">
+
+    </div>
+</div>
+
+<br>
+<hr>
+<div id="box3" style="position: relative">
+    <div id="box2" >
+        <div id="box1"></div>
+    </div>
+</div>
+</body>
+</html>

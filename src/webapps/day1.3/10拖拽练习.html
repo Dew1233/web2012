@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: red;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: red;
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+    <script type="application/javascript">
+        window.onload = function () {
+            /*
+            * 拖拽的流程
+            * 1鼠标在拖拽元素上按下时，开始拖拽 onmousedown
+            * 2鼠标移动的时候被拖拽的元素随着鼠标移动 onmousemove
+            * 3鼠标松开的时候 被拖拽元素固定在当前位置 onmouseup
+            * */
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+
+            drag(box1);
+            drag(box2);
+        }
+        function drag(obj) {
+            obj.onmousedown = function (event) {
+
+                /*
+                *设置box1捕获所有鼠标按下的事件
+                * setCapture()
+                *
+                * */
+
+                //div的偏移量 鼠标.clientX-元素.offsetLeft
+                /*在鼠标按下的时候求偏移量*/
+                var ol = event.clientX - obj.offsetLeft;
+                var ot = event.clientY - obj.offsetTop;
+
+                document.onmousemove = function (event) {
+                    /*鼠标的坐标*/
+                    var left = event.clientX - ol;
+                    var top = event.clientY - ot;
+
+                    obj.style.left = left +"px";
+                    obj.style.top = top +"px";
+                };
+                document.onmouseup = function () {
+                    //    取消onmousemove事件
+                    document.onmousemove = null;
+
+                    document.onmouseup = null;
+
+                    alert("鼠标松开了")
+                }
+
+                /*
+                * 当我们拖拽一个网页的内容的时候，浏览器会默认去搜索引擎中搜索内容
+                * 不希望发生这个行为可以通过 return flase来
+                * */
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+我是一段文字
+<div id="box1">
+
+</div>
+<div id="box2">
+
+</div>
+</body>
+</html>

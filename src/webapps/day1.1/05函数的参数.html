@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        function sum(a,b){
+
+            console.log(a+b);
+        }
+        /*滴哦用函数的时候，可以在()中指定实参*/
+        sum(1,2);
+        /*\
+        * 调用函数时，解析器不会检查实参的数量
+        * 多余实参不会被赋值
+        * 如果实参的数量少于形参的数量，则没有对应实参的形参值：undefined
+        *
+        * */
+        function sum1(a,b,c){
+            alert(a+b+c);
+        }
+        sum1(4,6,7);
+        function sum2(a,b,c){
+            var res = a+b+c;
+            return res;
+        }
+        var res = sum2(1,4,6);
+        console.log("result:"+res)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

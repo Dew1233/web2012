@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1{
+            color: red;
+        }
+        .d2{
+            color: green;
+        }
+        #d3{
+            color: yellow;
+        }
+        .d4,#d1,.d5,.d2{
+            background: pink;
+        }
+    /*    任意元素选择器*/
+        *{
+            border:1px dashed  red;
+        }
+    /*    属性选择器*/
+        input[type='text']{
+            background: purple;
+        }
+        input[type='password']{
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+<div class="d2">刘德华</div>
+<div>张学友</div>
+<div id="d1">郭富城</div>
+<span class="d2">苹果</span><span>香蕉</span><span>橙子</span>
+<h2 class="d5">电视</h2>
+<h2 class="d2">手机</h2>
+<h3 id="d3" class="d4">空调</h3>
+<hr style="height: 20px">
+<input type="text"><input type="password">
+</body>
+</html>

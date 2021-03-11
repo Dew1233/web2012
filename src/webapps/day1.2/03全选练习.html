@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="post" action = "">
+    what's your favorite sports?
+    <input type="checkbox" id="checkAllBox"/>全选/全不选
+    <br>
+    <input type="checkbox" name="items" value="足球" > 足球
+    <input type="checkbox" name="items" value="蓝球"> 蓝球
+    <input type="checkbox" name="items" value="羽毛球"> 羽毛球
+    <input type="checkbox" name="items" value="乒乓球"> 乒乓球
+
+    <br>
+    <input type="button" id="checkedAllBtn" value="全选">
+    <input type="button" id="checkedNoBtn" value="全不选">
+    <input type="button" id="checkedRevBtn" value="反选">
+    <input type="button" id="sendBtn" value="提交">
+
+    <br>
+    <br>
+</form>
+</body>
+<script type="application/javascript">
+    /*定义一个函数，专门用来指定元素绑定单机响应函数*/
+    function myClick(btnstr,fun) {
+        var btn = document.getElementById(btnstr);
+        btn.onclick = fun;
+    }
+    /*全选*/
+    let total = 0;
+    myClick("checkedAllBtn",function () {
+        var info = document.getElementById("info");
+        var items = document.getElementsByName("items");
+        /*设置四个多选框变成选中状态*/
+        for (var i = 0;i<items.length;i++){
+            /*通过多选框的checked属性可以来获取或者设置多选框的选中状态*/
+            items[i].checked = true;
+
+        }
+        checkAllBox.checked = true;
+        /*info.innerText = "总价为"+total;*/
+    })
+    myClick("checkedNoBtn",function () {
+        var items = document.getElementsByName("items");
+        /*设置四个多选框变成选中状态*/
+        for (var i = 0;i<items.length;i++){
+            /*通过多选框的checked属性可以来获取或者设置多选框的选中状态*/
+            items[i].checked = false;
+        }
+        checkAllBox.checked = false;
+    })
+    var items = document.getElementsByName("items");
+    /*反选*/
+    myClick("checkedRevBtn",function () {
+
+        /*设置四个多选框变成选中状态*/
+        for (var i = 0;i<items.length;i++){
+            checkAllBox.checked = false;
+            /*通过多选框的checked属性可以来获取或者设置多选框的选中状态*/
+            items[i].checked = !items[i].checked;
+        }
+        checkAllBox.checked = true;
+        for(var j = 0;j<items.length;j++){
+            if(!items[j].checked){
+                checkAllBox.checked = false;
+                /*进入判断就可以得到结果了，不用继续循环*/
+                break;
+            }
+        }
+    })
+
+    /*sendBtn*/
+    myClick("sendBtn",function () {
+        var items = document.getElementsByName("items");
+        /*设置四个多选框变成选中状态*/
+        for (var i = 0;i<items.length;i++){
+            if(items[i].checked){
+                alert(items[i].value);
+            }
+        }
+    })
+
+    /*checkedAllBox*/
+    myClick("checkAllBox",function () {
+        var items = document.getElementsByName("items");
+        for (var i = 0;i<items.length;i++){
+            items[i].checked = this.checked;
+            /*
+            * 事件的响应函数中，响应函数给谁绑定就是指的哪个对象
+            * */
+        }
+        /*如果四个多选框全都选中则，checkedAllBox也应该选中
+   * 如果全部都没选中，则checkedAllBox也不应该选中*/
+
+    })
+    for (var i = 0;i<items.length;i++){
+        /*将checkedAllBox设置为选中状态*/
+        items[i].onclick = function () {
+            checkAllBox.checked = true;
+            for(var j = 0;j<items.length;j++){
+                if(!items[j].checked){
+                    checkAllBox.checked = false;
+                    /*进入判断就可以得到结果了，不用继续循环*/
+                    break;
+                }
+            }
+        }
+
+    }
+
+
+</script>
+</html>

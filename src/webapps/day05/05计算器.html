@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*function add() {
+            let i1 = document.getElementById("i1");
+            let i2 = document.getElementById("i2");
+            let res = document.getElementById("d1");
+            res.innerText = parseInt(i1.value)+parseInt(i2.value);
+        }
+        function sub() {
+            let i1 = document.getElementById("i1");
+            let i2 = document.getElementById("i2");
+            let res = document.getElementById("d1");
+            res.innerText = parseInt(i1.value)-parseInt(i2.value);
+        }
+        function mul() {
+            let i1 = document.getElementById("i1");
+            let i2 = document.getElementById("i2");
+            let res = document.getElementById("d1");
+            res.innerText = parseInt(i1.value)*parseInt(i2.value);
+        }
+        function div() {
+            let i1 = document.getElementById("i1");
+            let i2 = document.getElementById("i2");
+            let res = document.getElementById("d1");
+            res.innerText = parseInt(i1.value)/parseInt(i2.value);
+        }*/
+        function f(x) {
+            let i1 = document.getElementById("i1");
+            let i2 = document.getElementById("i2");
+            let res = document.getElementById("d1");
+            switch (x) {
+                case 1:res.innerText = parseInt(i1.value)+parseInt(i2.value);break;
+                case 2:res.innerText = parseInt(i1.value)-parseInt(i2.value);break;
+                case 3:res.innerText = parseInt(i1.value)*parseInt(i2.value);break;
+                case 4:res.innerText = parseInt(i1.value)/parseInt(i2.value);break;
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="text" id="i2">
+<input type="button" value="加" onclick="f(1)" >
+<input type="button" value="减" onclick="f(2)">
+<input type="button" value="乘" onclick="f(3)">
+<input type="button" value="除" onclick="f(4)">
+<div id="d1">结果：</div>
+
+</body>
+</html>

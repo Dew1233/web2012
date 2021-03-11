@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        window.onload = function () {
+            /*
+            * addEventListener()
+            * 1 事件的字符串不要on
+            * 2 回调函数，当事件被触发时候该函数会被调用
+            * 3 是否要在捕获阶段触发事件 需要传递布尔值
+            * 使用addEventListener()可以同时为一个元素的相同事件同时绑定
+            * 多个响应函数
+            * 当时间被触发时候响应函数将会按照函数的绑定
+            *
+            *  */
+           /* btn01.addEventListener("click",function () {
+                alert(1);
+            },false);
+            btn01.addEventListener("click",function () {
+                alert(2);
+            },false);*/
+
+            /*
+            * attachEvent()
+            * ie8中可以使用attachEvent()
+            * 1 事件字符串要on
+            * 2 回调函数
+            *
+            * 后绑定先执行
+            *
+            * */
+
+           /* btn01.attachEvent("click",function () {
+                alert(1);
+            },false);
+            btn01.attachEvent("click",function () {
+                alert(2);
+            },false);*/
+
+            function bind(obj,eventStr,callback){
+                /*大部分浏览器兼容的方式*/
+
+                if(obj.addEventListener){
+                    obj.addEventListener(eventStr,callback,false);
+                }else{
+                    /*
+                    * callback.call(obj)
+                    * 调用
+                    * */
+                    /*IE8及以下*/
+                    obj.attachEvent("on"+eventStr,function () {
+                        /*匿名函数中调用回调函数*/
+                        callback.call(obj);
+                    });
+                }
+            }
+             btn01.addEventListener("click",function () {
+                alert(1);
+            },false);
+            btn01.addEventListener("click",function () {
+                alert(2);
+            },false);
+
+        }
+    </script>
+</head>
+<body>
+<button id="btn01"> 点我一下</button>
+</body>
+</html>

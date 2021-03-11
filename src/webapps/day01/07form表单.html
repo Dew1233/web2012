@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--action提交地址-->
+<form action="http://ww.tmooc.cn">
+    用户名：<input type="text"
+               name="username"
+               placeholder="请输入用户名"
+               maxlength="5"
+               value="设置默认值"
+               readonly="readonly"><br>
+    密码：<input type="password"
+              name="password"
+              placeholder="请输入密码"><br>
+    性别：<input type="radio" name="gender"
+              value="1" id="r1">
+    <label for="r1">男</label>
+    <input type="radio"name="gender" value="0"
+         checked="checked" id="r2">
+    <label for="r2"> 女</label>
+    <br>
+    兴趣爱好：
+    <input type="checkbox" name="hobby" value="cy">抽烟
+    <input type="checkbox" name="hobby" value="hj">喝酒
+    <input type="checkbox" name="hobby" value="tt">烫头
+    <br>
+    生日：
+    <input type="date" name="birthday"><br>
+<!--    文件选择器-->
+    靓照：
+    <input type="file" name="pic"><br>
+<!--    文本域 cols="30" rows="10"列数30 行数10-->
+    自我介绍：<textarea name="intro"   placeholder="说点什么"
+                   cols="30" rows="10"></textarea><br>
+<!--    下拉选-->
+    所在地：<select name="city" >
+    <option value="guangzhou">广州</option>
+    <option value="shanghai">上海</option>
+    <option value="beijing">北京</option>
+</select><br>
+    <input type="submit" value="注册">
+<!--    重置按钮-->
+    <input type="reset" value="重置">
+<!--    自定义按钮 学习完JS之后才能添加点击所做的事儿-->
+    <input type="text" value="按钮">
+</form>
+</body>
+</html>

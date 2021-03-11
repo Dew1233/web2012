@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        var arr = ["孙悟空","猪八戒","沙和尚"];
+        var arr2 = ["白骨精","玉兔精","蜘蛛精"];
+        var arr3 = ["二郎神","太上老君","玉皇大帝"];
+        /*
+        *contact()可以连接诶连个个或者多个数组，并将新的数组返回
+        * 该方法不会对原数组产生影响
+        * */
+        var result = arr.concat(arr2,arr3,"牛魔王","铁扇公主");
+        console.log(result);
+
+        /*
+        * join()
+        * 该方法可以将数组转换为一个字符串
+        * 该方法不会对元数组产生影响，而是将转换后的字符串作为结果返回
+        * */
+        result = arr.join("-hello");
+        console.log(result)
+
+        /*
+        * reverse()
+        * 该方法用来反转数组
+        * 该方法直接修改原数组
+        * */
+        arr.reverse();
+        console.log(arr);
+
+        arr = ["b","d","e","a","c"];
+        /*sort()
+        * 可以用来数组中的元素进行排序
+        * 也会影响原数组，默认会按照Unicode编码进行排序
+        * 即使对于数字来说，对于数字sort也可能出错
+        * 所以可以在sort()添加一个回调函数指定排序规则
+        *
+        * */
+        arr.sort();
+        arr.reverse();
+
+        console.log(arr);
+
+        arr = [1,24,5,2,5,3];
+        arr.sort(function (a,b) {
+            // return a-b;//升序
+            return b-a;
+        })
+        console.log(arr);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

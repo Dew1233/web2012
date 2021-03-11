@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<button id="btn">我是一个按钮</button>
+</body>
+<script type="application/javascript">
+    /*
+    * Node  构成HTML文档的最基本单元
+    * 文档节点：#document
+    * 元素节点  标签名
+    * 属性节点  属性名
+    * 文本节点  #text
+    * */
+    console.log(document);
+    var btn = document.getElementById("btn");
+    console.log(document.getElementById("btn"));
+    btn.innerHTML="按钮";
+</script>
+</html>

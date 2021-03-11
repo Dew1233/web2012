@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        window.onload = function(){
+           /*
+           * document.querySelector()
+           *
+           * 虽然IE8没有getElementsByClassName()但是可以使用querySelector（）
+           * 如果满足要求的元素有多个，只会返回第一个
+           * */
+            var div = document.querySelector(".box1 div");
+            console.log(div.innerHTML);
+
+            /*
+            * document.querySelectorAll()
+            * 用法和querySelector()用法类似，不同的 是它会将法和条件的元素封装到一个数组中返回
+            * 即使符合条件的元素只有一个，他也会返回数组
+            * */
+        }
+    </script>
+</head>
+<body>
+<div class="box1">
+    <div>我是box1中的div</div>
+</div>
+</body>
+</html>

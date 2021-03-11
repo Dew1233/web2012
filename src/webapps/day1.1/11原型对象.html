@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        /*
+        * 原型对象就相当于一个公共的区域，所有同一个类的实例都可以访问到这个原型
+        * 我们可以就将对象中共有的内容，统一设置到原型对象中
+        * 当我们访问对象的一个属性或者方法的时候，他会在对象自身中先寻找
+        * 如果有则直接输出
+        * 如果没有则会去原型对象中寻找，如果找到则直接使用
+        * */
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+
+        }
+        Person.prototype.sayName =   function(){
+            console.log(this.name);
+        }
+        var per = new Person("孙悟空",18,"男");
+        var per2 = new Person("猪八戒",26,"男");
+        per.sayName();
+        per2.sayName();
+        /*
+        * 使用in检查对象中是否含有某个属性 如果对象中没有但是原型中有也会返回true
+        * */
+
+        /*
+        * 使用hasOwnProperty()检查对象自身是否含有该属性
+        * */
+        /*
+        * 原型对象也是对象，所以他也有原型
+        * 原型的原型，直到找到Object对象的原型
+        * Object对象的原型没有原型，如果还是没有则返回undefined
+        * */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

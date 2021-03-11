@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #af1717;
+        }
+    </style>
+    <script type="application/javascript">
+        function myClick(btnstr,fun){
+            var btn = document.getElementById(btnstr);
+            btn.onclick=fun;
+        }
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            myClick("btn01",function () {
+                box1.style.width = "200px";
+                box1.style.height = "200px";
+                /*
+                * 如果css样式中含有-
+                * 这种名称在js中是不合法的 比如background-color
+                * 需要将这种样式名改为驼峰命名法
+                * 去掉-然后将-后的字母大写
+                *
+                * js的样式级别比较懂啊
+                * 但是写了!important就不能成功
+                * */
+                box1.style.backgroundColor="yellow";
+            })
+
+            myClick("btn02",function(){
+                /*通过style设置和读取的都是内联样式
+                * 无法读取样式表的样式
+                * */
+                alert(box1.style.width);
+            })
+
+            myClick("btn03",function () {
+                /*获取当前的元素显示的样式
+                * 元素.currentStyle.width
+                * 在谷歌里面不能用 只能在ie里面用
+                * ie8不支持ComputedStyle及一下
+                * 其他浏览器可以使用getComputedStyle()方法获取元元素样式
+                *                 需要两个参数：1元素名字
+                *                             2一个伪元素
+                *  */
+               alert(getComputedStyle(box1,null).width);
+            })
+
+            /*
+            * 定义一个函数，用来获取指定元素的当前样式
+            * 参数：obj 要获取的样式元素
+            *      name 要获取的样式名
+            * */
+            function getStyle(obj,name){
+
+
+               if(window.getComputedStyle){
+                   /*正常浏览器方式*/
+                   return   getComputedStyle(obj,null)[name];
+               }else {
+                   /*Ie8方式*/
+                   return obj.currentStyle[name];
+               }
+            }
+
+            myClick("btn04",function () {
+
+                alert(getStyle(box1,null).width);
+            })
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="btn01" value="点我一下">
+<input type="button" id="btn02" value="读取内联样式">
+<input type="button" id="btn03" value="读取样式">
+<input type="button" id="btn04" value="读取样式">
+<div id="box1"></div>
+</body>
+</html>

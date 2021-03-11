@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        /*判断数字是否偶数*/
+        function otu(a){
+            if(a%2==0){
+                return true;
+            }else {
+                return false;
+            }
+        }
+        var h = otu(8);
+        console.log(h);
+        /*定义一个函数，根据半径计算一个圆的面积,并返回计算结果*/
+        function circle(r) {
+            let PI = 3.1415926;
+            var s = PI*r*r;
+            return s;
+        }
+        var c = circle(36);
+        console.log(c+"平方厘米");
+
+        /*创建一个函数，可以在控制台中输出一个人的信息
+        * 可以输出人的name age gender address*/
+        /*传入一个对象*/
+        function sayHello(o){
+            console.log("我是"+o.name+"今年"+o.age+"性别"+o.gender+o.address);
+        }
+
+        var obj = {
+            name:"孙悟空",
+            age:"25",
+            gender:"男",
+            address:"花果山"
+        };
+        sayHello(obj);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+         *{
+             margin: 0;
+             padding: 0;
+         }
+
+        #outer{
+            overflow: hidden;
+            width: 160px;
+            height: 140px;
+            background-color: #0AA1ED;
+            margin: 50px auto;
+            padding: 10px 0;
+            position: relative;
+        }
+        #imgList{
+            list-style: none;
+            /*width: 700px;*/
+            position: absolute;
+
+        }
+        #imgList li{
+            float: left;
+            margin: 0 10px;
+        }
+        #navDiv{
+            position: absolute;
+            bottom: 15px;
+        /*    设置left值*/
+
+        }
+        #navDiv a{
+            float: left;
+            width: 10px;
+            height: 10px;
+            display: block;
+            background-color: yellow ;
+            opacity: 0.5;
+            /*兼容IE8*/
+            filter:alpha(opacity=50);
+            margin: 0 5px;
+        }
+         #navDiv a:hover{
+             background-color: #000000;
+         }
+    </style>
+    <script>
+        window.onload = function(){
+        //    获取imgList 也就是ul
+            var imgList= document.getElementById("imgList");
+
+        //    获取页面中所有的img标签
+            var imgArr = document.getElementsByTagName("img");
+
+        //    设置imgList的宽度
+            imgList.style.width = 160*imgArr.length +"px";
+
+            //设置导航按钮居中
+            var navDiv = document.getElementById("navDiv");
+            var outer = document.getElementById("outer");
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth)/2+"px";
+
+            var index = 0;
+            /*获取所有的a*/
+            var allA = document.getElementsByTagName("a");
+            allA[index].style.backgroundColor = "black";
+
+            /*点击超链接切显示第一个图片*/
+            for(var i = 0;i<allA.length;i++){
+                //为每个超链接添加一个属性
+                allA[i].num = i;
+                //为超链接绑定响应函数
+                allA[i].onclick = function () {
+                    // console.log(this.num);
+                    //获取点击超链接的索引，并将其设置为index
+                    index = this.num;
+                    //切换图片
+                    /*
+                    * 第一张索引为0 0
+                    * 第二张索引为1 -520
+                    * */
+                    // imgList.style.left = -160*index +"px";
+
+                    /*修改正在选中的a*/
+                    setA();
+                    /*使用move*/
+                    move(imgList,"left",-160*index,10,function () {
+                    })
+                }
+            }
+           // 开启自动切换图片
+            autoChange();
+
+           //设置选中的a
+            function setA() {
+
+                if(index>=imgArr.length-1){
+                //    将index设置为0
+                    index = 0;
+                    imgList.style.left = 0;
+                }
+                for (var i = 0;i<allA.length;i++){
+                    allA[i].style.backgroundColor = "";
+                }
+                allA[index].style.backgroundColor = "black";
+            }
+
+            var timer;
+            //创建自动切换
+            function autoChange() {
+                timer= setInterval(function () {
+                //    使索引自增
+                    index++;
+                    index%=imgArr.length;
+                    setA();
+                //    执行动画，切换图片
+                    move(imgList,"left",-160*index,20);
+                },1000);
+            }
+
+            //移动
+            function move(obj,attr,target,speed,callback){
+                var oldValue = parseInt(getStyle(obj,attr));
+                clearInterval(obj.timer);
+                /*判断速度的正负值，往左还是右边*/
+                var current = parseInt(getStyle(obj,"left"));
+                if(current>target){
+                    speed = -speed;
+                }
+                console.log(current);
+                obj.timer = setInterval(function () {
+
+                    var oldValue = parseInt(getStyle(obj,attr));
+                    var newValue = oldValue +speed;
+
+                    if((speed<0&&newValue<target)||(speed>0&&newValue>target)){
+                        newValue = target;
+                    }
+                    console.log(oldValue);
+                    console.log(newValue);
+                    console.log(target);
+                    obj.style[attr] = newValue +"px";
+                    if(newValue ==target){
+                        clearInterval(obj.timer);
+                        callback &&callback();
+                    }
+
+                },30)
+            }
+            //获取元素
+            function getStyle(obj,name) {
+                if(window.getComputedStyle){
+                    return getComputedStyle(obj,null)[name];
+                }else {
+                    return obj.currentStyle[name];
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="outer">
+    <ul id="imgList">
+        <li><img src="images/hotre_item02.jpg" alt=""></li>
+        <li><img src="images/hotre_item03.jpg" alt=""></li>
+        <li><img src="images/hotre_item04.jpg" alt=""></li>
+        <li><img src="images/hotre_item05.jpg" alt=""></li>
+        <li><img src="images/hotre_item02.jpg" alt=""></li>
+    </ul>
+<!--    创建导航按钮-->
+    <div id="navDiv">
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+    </div>
+</div>
+</body>
+</html>

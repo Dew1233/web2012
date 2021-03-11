@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script TYPE="application/javascript">
+        function myClick(btnstr,fun){
+            var btn = document.getElementById(btnstr);
+            btn.onclick=fun;
+        }
+        window.onload = function () {
+            var allA = document.getElementsByTagName("a");
+
+            var u1 = document.getElementById("u1");
+            myClick("btn01",function () {
+               var li = document.createElement("li");
+               li.innerHTML = "<a href='javascript:;'>超链接一</a>";
+               u1.appendChild(li);
+            })
+
+            /*
+            * 希望只绑定一次事件，即可应用到多个元素上，
+            * 可以尝试将其绑定给元素的共同祖先元素
+            *
+            *
+            * 事件的委派
+            * 指将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的事件触发时候，会一直冒泡到祖先元素
+            * 从而通过祖先元素的响应函数来处理事件
+            * 事件委派是利用了冒泡减少
+            *
+            * */
+            myClick("u1",function (event) {
+
+                event = event || window.event;
+
+                //如果触发的事件对象是我们期望的元素执行，否则不执行
+                /*
+                * target
+                * */
+                if(event.target.className == "link"){
+                    alert("我是ul的单击响应函数");
+                }
+
+            })
+        }
+    </script>
+</head>
+<body>
+<button id="btn01">添加超链接</button>
+<ul id="u1">
+    <li><a href="javascript:;">超链接一</a></li>
+    <li><a href="javascript:;">超链接一</a></li>
+    <li><a href="javascript:;">超链接一</a></li>
+</ul>
+</body>
+</html>

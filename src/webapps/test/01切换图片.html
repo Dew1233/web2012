@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container{
+            text-align: center;
+            background-color: #c63535;
+        }
+    </style>
+    <script type="application/javascript">
+        window.onload = function(){
+            var prev = document.getElementById("prev");
+            var next = document.getElementById("next");
+            var imgsrc = document.getElementById("imgstr");
+            var info = document.getElementById("info");
+
+            imgArr = ["images/hotre_item02.jpg","images/hotre_item03.jpg","images/hotre_item02.jpg","images/hotre_item04.jpg","images/hotre_item05.jpg"];
+            var count=0;
+            info.innerHTML = "一共有"+imgArr.length+"张,这是第"+count+"张";
+
+            prev.onclick=(function () {
+                count--;
+                if(count<0){
+                    count =imgArr.length-1;
+                }
+                imgsrc.src = imgArr[count];
+                info.innerHTML = "一共有"+imgArr.length+"张,这是第"+(count+1)+"张";
+            })
+
+            next.onclick=(function(){
+                count++;
+                if(count>imgArr.length-1){
+                    count =0;
+                }
+                imgsrc.src = imgArr[count];
+                info.innerHTML = "一共有"+imgArr.length+"张,这是第"+(count+1)+"张";
+            })
+        }
+    </script>
+</head>
+<body>
+<div id="container">
+    <p id="info"></p>
+    <img id="imgstr" src="images/hotre_item02.jpg" alt="">
+
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+</div>
+</body>
+</html>

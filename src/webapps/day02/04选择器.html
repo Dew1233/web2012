@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+/* 子孙后代选择器*/
+       /* body div div span{
+         color: red;
+            }*/
+/*子元素选择器*/
+        body>div>div>span{
+            color: purple;
+        }
+    /*    伪类选择器*/
+    /*未访问状态*/
+        a:link{
+            color: red;
+        }
+        /*访问过状态*/
+        a:visited{
+            color: green;
+        }
+        /*悬停状态*/
+        a:hover{
+            color: blue;
+        }
+        /*点击状态*/
+        a:active{
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+<a href="../a1.png">超链接1</a>
+<a href="../a1.png">超链接2</a>
+<a href="../a1.png">超链接3</a>
+<hr>
+<span>s1</span>
+<div>
+    <span>s2</span>
+    <div><span>s3</span></div>
+    <div>
+        <span>s4</span>
+        <div><span>s5</span></div>
+    </div>
+</div>
+</body>
+</html>

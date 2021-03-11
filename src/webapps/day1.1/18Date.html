@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        var d = new Date();
+        console.log(d);
+        /*创建一个指定的时间对象
+        * 需要在构造函数中传递一个表示时间的字符串作为参数
+        * 日期的格式 月份/日/年 时:分:秒
+        *
+        * getDate()
+        * 获取当前日期对象是几日
+        *
+        * getDay()
+        * 获取当前日期对象是周几
+        *
+        * getMonth()
+        * 获取当前时间对象的月份
+        * 会返回0-11的值
+        *
+        * getFullYear()
+        * 获取当前年份
+        *
+        * getTime()
+        * 获取当前日期对象的时间戳
+        * 时间戳，指的是从格林威治标准时间的1970年1月1日 0时0分0秒
+        *     到当前日期所划分的毫秒数(1秒 = 1000毫秒)
+        * 计算机底层保存使用时间戳
+        *
+        * 利用时间戳来测试代码的执行性能
+        * 获取当前的时间戳
+        *
+        * */
+        var d2 = new Date();
+        console.log(d.getDay());
+        console.log(d.getMonth()+1);
+        console.log(d.getTime()/1000/60/60/24/365);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

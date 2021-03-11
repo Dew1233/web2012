@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="text" value="按钮" id="b1">
+<div id="d1"></div>
+
+<script type="application/javascript" src="../js/jquery-1.4.2.js"></script>
+<script>
+    /*
+    js动态绑定时间
+    let b1 = document.getElementById("b1");
+    b1.onclick=function(){
+
+    }*/
+    //给按钮添加点击事件
+    $("#b1").click(function(){
+        alert("按钮点击了");
+    })
+</script>
+</body>
+</html>

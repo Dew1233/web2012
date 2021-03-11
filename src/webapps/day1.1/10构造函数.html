@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        /*构造函数的执行过程
+        * 1立即创建一个地下
+        * 2.将新建对象设置为函数中this,在函数
+        * 3.逐行执行函数中的代码
+        * 4.将新建的对象作为放哪绘制返回
+        * */
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.sayName = function(){
+                console.log(this.name);
+            }
+        }
+        var per = new Person();
+        console.log(per);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

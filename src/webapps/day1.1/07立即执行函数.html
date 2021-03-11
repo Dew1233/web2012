@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        /*立即执行函数*/
+        (function(){
+            alert("我是一个匿名函数~~")
+        })();
+        (function(a,b){
+            console.log(a);
+            console.log(b);
+        })(123,456);
+
+        var obj = new Object();
+        obj.name = "孙悟空";
+        obj.age = "花果山";
+        obj.sayName = function () {
+            console.log(obj.name);
+            console.log(obj.age);
+        }
+        /*调用方法*/
+        obj.sayName();
+        /*
+        * for(var 变量 in 对象){
+        *
+        * }
+        * */
+        for(var n in obj){
+            console.log("属性名："+n+"属性值:"+obj[n]);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

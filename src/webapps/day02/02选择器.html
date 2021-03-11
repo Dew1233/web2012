@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1{
+            color: red;
+        }
+        .c1{
+            color: green;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div,#d1,.c1{
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<!--ID与类不同，在一个 HTML 文档中，ID 选择器会使用一次，而且仅一次。-->
+<!--    标签选择器：<div></div>       div{}
+        ID选择器 :id=yegol           #yegol{}
+        类选择器:class=yegol         .yegol{}
+        分组选择器：                  div,#d1,.c1{}
+        任意元素选择器:                *{}
+        属性选择器:<input type= 'text'>        input[type='text']
+        后代选择器body里面div里面的所有span       body div span
+        子元素选择器                             body>span{}
+        伪类选择器：
+        相邻兄弟选择器
+        -->
+<div id="d1">div1</div>
+<div>div2</div>
+<div class="c1">div3</div>
+<span>span1</span>
+<span>span2</span>
+<span class="c1">span3</span>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            display: block;
+        }
+
+    </style>
+
+</head>
+<body>
+
+   <center>
+       <div >d1</div>
+       <div >d2</div>
+       <div id="abc"></div>
+           <div >d3</div>
+           <div >d4</div>
+       <span >s1</span>
+       <span >s2</span>
+       <p>p1</p>
+       <p>p2</p>
+       <p>p3</p>
+       <hr>
+       <br>
+   </center>
+
+</body>
+<script type="application/javascript" src="../js/jquery-1.4.2.js"></script>
+<script type="application/javascript">
+    window.onload = function () {
+        /*
+        * 匹配id为abc元素的弟弟元素
+        * 都是兄弟选择器
+        * */
+        // $("#abc").next("span").css('background-color','red');//???没有因为中间有两个div
+        // $("#abc").nextAll().css('background-color','red');//d3 d4 s1 s2 p1 p2 p3
+
+        // $("#abc").prev().css('background-color','red');//d2
+        // $("#abc").prevAll().css('background-color','red');//d2 d1
+        // $("#abc").siblings("span").css('background-color','red');//s1 s2
+        //  $("#abc").parent().css('background-color','red');//center
+        // $("#abc").children().css('background-color','red');//ss
+
+        //过滤选择器
+        // $("div:first").css('background-color','red');//d1
+        // $("div:last").css('background-color','red');//d4
+        // $("div:eq(1)").css('background-color','red');//d2
+        // $("div:lt(3)").css('background-color','red');//d1 d2 #abc 下标小于3
+        // $("div:gt(3)").css('background-color','red');//d4  大于下标为3的
+        // $("div:not(#abc)").css('background-color','red');//d1 d2 d3 d4
+        // $("div:even").css('background-color','red');//下标为偶数
+        // $("div:odd").css('background-color','red');//下标为奇数
+
+        // 内容选择器
+        // $("div:has(p)")匹配包含p子元素的div
+        // $("div:empty") 匹配空的div
+        // $("div:parent") 匹配非空的div
+        // $("div:contains('xxx')") 匹配包含xxx文本的div
+
+        // 可见选择器
+        // $("div:visible") 匹配所有显示的div
+        // $("div:hidden") 匹配所有隐藏的div
+        // 显示隐藏相关方法:
+        //     $("#abc").show() 让id为abc的元素显示
+        // $("#abc").hide() 让id为abc的元素隐藏
+        // $("#abc").toggle() 让id为abc的元素显示隐藏切
+        // 换
+        // 属性选择器
+        // $("div[属性名]") 匹配包含xxx属性的div
+        // $("div[属性名='值']") 匹配xxx属性=xxx值的div
+        // $("div[属性名!='值']") 匹配xxx属性不等于xxx值的
+        // div
+        // 子元素选择器
+        // $("div:first-child") 匹配是div并且是子元素并且是
+        // 第一个子元素
+        // $("div:last-child") 匹配是div并且是子元素并且是
+        // 最后一个子元素
+        // $("div:nth-child(n)") 匹配是div并且是子元素并且
+        // 是第n个子元素 n从1开始
+
+        // 表单选择器
+        // $(":input") 匹配表单中的所有控件
+        // $(":password") 匹配所有密码框
+        // $(":radio") 匹配所有单选
+        // $(":checkbox") 匹配所有多选
+        // $(":checked") 匹配所有选中的单选/多选和下拉选
+        // $("input:chekced") 匹配所有选中的单选和多选
+        // $(":selected") 匹配所有选中的下拉选
+
+    }
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+       /*
+       * JS中的数据类型
+       * String     字符串
+       * Number    数字
+       * Boolean   布尔值
+       * Null      空值
+       * Undefined 未定义
+       *
+       * Object对象
+       * 1内建对象
+       *        由ES标准中定义的对象，在任何的ES中实现都可以使用
+       * 2宿主对象
+       *        由js的运行环境提供的对象，目前来讲主要指由浏览器提供的对象
+       *        比如BOM DOM
+       *
+       * 3自定义对象
+       *       由开发人员自己创建的对象
+       * */
+        //创建对象
+       /*使用new关键字调用的函数，是构造函数constructor
+       * 构造函数专门来创建对象的函数
+       * 使用typeof检查一个对象会返回object
+       * */
+        var obj= new Object();
+    //    向obj中添加一个name属性
+        obj.name = "孙悟空";
+        obj.gender = "男";
+        obj.age = 18;
+        console.log(obj)
+       //增
+       obj.name = "tom";
+       console.log(obj.name);
+       //删
+        delete obj.name;
+        console.log(obj)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
